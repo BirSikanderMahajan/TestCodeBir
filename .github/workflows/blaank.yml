@@ -27,7 +27,7 @@ jobs:
         $headers = @{}
         $headers.Add("AccessKey","qwertyui")
         $runScheduleId = "75a6d119-731d-4119-b173-a92d20fc49b0"
-        $runNow = Invoke-WebRequest -Method PUT -ContentType "application/json" -Headers $headers "http://devplug.southcentralus.cloudapp.azure.com:9001/api/v3/schedules/$runScheduleId/runNow"
+        $runNow = Invoke-WebRequest -Method PUT -ContentType "application/json" -Headers $headers "http://devplug.southcentralus.cloudapp.azure.com:9001/api/v4/schedules/75a6d119-731d-4119-b173-a92d20fc49b0/runNow"
         Write-Host "Result:  " $runNow
         if ($runNow.StatusCode -ne 200) { throw "Could not run schedule." }
         $runNowResponse=$runNow.Content | ConvertFrom-Json
